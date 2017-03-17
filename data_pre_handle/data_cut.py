@@ -81,7 +81,6 @@ def cut_csv(filename):
     reader = csv.reader(file_in)
 
     for line in reader:
-        line = file_in.readline()
         user_name = line[3]
         add_data_csv(user_name=user_name, data=line)
 
