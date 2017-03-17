@@ -12,6 +12,7 @@
 """
 
 import json
+import os
 
 
 def init_api_dist():
@@ -19,8 +20,13 @@ def init_api_dist():
     从data目录中获取到api列表，初始化一个字典返回
     :return:描述API列表的一个字典
     """
-    pass
-    return {}
+    api_map = "data/api_map.json"
+    with open(api_map, 'r') as f:
+        data = json.load(f)
+    new_dist = {}
+    for (k, v) in data.items():
+        new_dist[k] = 0
+    return new_dist
 
 
 def load_file(filename):
@@ -46,10 +52,16 @@ def load_file(filename):
     return api_vec
 
 
-class Main():
-    def __init__(self):
-        pass
+def train():
+    """
 
+    :return:
+    """
+    file_path = os.getcwd() + '/data/after_cut/'
+    file_list = os.listdir(file_path)
+
+    for item in file_list:
+        vec = load_file(file_path + item)
 
 if __name__ == '__main__':
     pass
