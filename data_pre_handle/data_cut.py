@@ -42,7 +42,7 @@ def add_data_csv(user_name, data):
     if user_name not in user_array:
         user_array.append(user_name)
 
-    file_out = file('../after_cut/'+user_name+'.csv', 'wb')
+    file_out = file('../data/after_cut/'+user_name+'.csv', 'wb')
     file_writer = csv.writer(file_out)
     file_writer.writerow(data)
     file_out.close()
