@@ -15,6 +15,8 @@ import json
 import os
 
 
+api_vec_map = {}
+
 def init_api_dist():
     """
     从data目录中获取到api列表，初始化一个字典返回
@@ -49,6 +51,8 @@ def load_file(filename):
     api_vec = []
     for (k, v) in api_dist.items():
         api_vec.append(v)
+
+    api_vec_map[filename] = api_vec
     return api_vec
 
 
@@ -62,6 +66,15 @@ def train():
 
     for item in file_list:
         vec = load_file(file_path + item)
+
+
+def transform_file_to_vec():
+    """
+    遍历文件夹，将其中的文件转换成矩阵之后生成一个矩阵文件
+
+    :return:
+    """
+    pass
 
 if __name__ == '__main__':
     pass
