@@ -74,7 +74,17 @@ def transform_file_to_vec():
 
     :return:
     """
-    pass
+    file_path = os.getcwd() + '/data/after_cut/'
+    file_list = os.listdir(file_path)
+
+    vec_map = {}
+    for item in file_list:
+        vec = load_file(item)
+        vec_map[item] = vec
+
+    vec_file = open("vector_file.json", 'w')
+
+    vec_file.close()
 
 if __name__ == '__main__':
     pass
