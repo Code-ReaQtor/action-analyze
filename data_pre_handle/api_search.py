@@ -26,7 +26,7 @@ def generate_api_map(filename):
     for line in reader:
         api_map[line[28]] = line[49]
 
-    file_out = open('../data/api_map.txt', 'w')
+    file_out = open('../data/api_map.json', 'w')
     # 将得到的dist 按照 value 值进行排序 得到一个固定的顺序
     api_map_data = json.dumps(api_map)
     file_out.write(api_map_data)
@@ -36,5 +36,5 @@ def generate_api_map(filename):
 
 
 if __name__ == '__main__':
-    generate_api_map(filename="../data/api_map.json")
+    generate_api_map(filename="../data/683.csv")
 
