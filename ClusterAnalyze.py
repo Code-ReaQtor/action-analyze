@@ -22,7 +22,7 @@ def init_api_dist():
     从data目录中获取到api列表，初始化一个字典返回
     :return:描述API列表的一个字典
     """
-    api_map = "/data/api_map.json"
+    api_map = "./data/api_map.json"
     with open(api_map, 'r') as f:
         data = json.load(f)
     new_dist = {}
@@ -61,7 +61,7 @@ def train():
 
     :return:
     """
-    file_path = os.getcwd() + '/data/after_cut/'
+    file_path = os.getcwd() + './data/after_cut/'
     file_list = os.listdir(file_path)
 
     for item in file_list:
@@ -74,7 +74,7 @@ def transform_file_to_vec():
 
     :return:
     """
-    file_path = os.getcwd() + '/data/after_cut/'
+    file_path = os.getcwd() + './data/after_cut/'
     file_list = os.listdir(file_path)
 
     vec_map = {}
@@ -82,7 +82,7 @@ def transform_file_to_vec():
         vec = load_file(file_path+item) #fix bug
         vec_map[item] = vec
 
-    vec_file = open("vector_file.json", 'w')
+    vec_file = open("./data/vector_file.json", 'w')
     #将矩阵dump 到文件中存储
     matrix_data = json.dumps(vec_map)
     vec_file.write(matrix_data)
