@@ -61,7 +61,7 @@ def train():
 
     :return:
     """
-    file_path = os.getcwd() + './data/after_cut/'
+    file_path = os.getcwd() + '/data/after_cut/'
     file_list = os.listdir(file_path)
 
     for item in file_list:
