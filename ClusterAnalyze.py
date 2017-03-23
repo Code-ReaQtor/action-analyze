@@ -22,7 +22,7 @@ def init_api_dist():
     从data目录中获取到api列表，初始化一个字典返回
     :return:描述API列表的一个字典
     """
-    api_map = "data/api_map.json"
+    api_map = "/data/api_map.json"
     with open(api_map, 'r') as f:
         data = json.load(f)
     new_dist = {}
