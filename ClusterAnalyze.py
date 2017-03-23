@@ -61,7 +61,7 @@ def train():
 
     :return:
     """
-    file_path = os.getcwd() + './data/after_cut/'
+    file_path = os.getcwd() + '/data/after_cut/'
     file_list = os.listdir(file_path)
 
     for item in file_list:
@@ -74,7 +74,7 @@ def transform_file_to_vec():
 
     :return:
     """
-    file_path = os.getcwd() + './data/after_cut/'
+    file_path = os.getcwd() + '/data/after_cut/'
     file_list = os.listdir(file_path)
 
     vec_map = {}
