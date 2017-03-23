@@ -17,6 +17,7 @@ import os
 
 api_vec_map = {}
 
+
 def init_api_dist():
     """
     从data目录中获取到api列表，初始化一个字典返回
@@ -44,6 +45,7 @@ def load_file(filename):
     api_dist = init_api_dist()
     for line in reader:
         api = line[28]
+        print api + "#########"
         api_dist[api] += 1
 
     file_in.close()
@@ -76,6 +78,7 @@ def transform_file_to_vec():
     """
     file_path = os.getcwd() + '/data/after_cut/'
     file_list = os.listdir(file_path)
+    file_amount = len(file_list)
 
     vec_map = {}
     for item in file_list:
