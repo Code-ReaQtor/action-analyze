@@ -79,7 +79,7 @@ def transform_file_to_vec():
 
     vec_map = {}
     for item in file_list:
-        vec = load_file(item)
+        vec = load_file(file_path+item) #fix bug
         vec_map[item] = vec
 
     vec_file = open("vector_file.json", 'w')
