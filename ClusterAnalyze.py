@@ -22,7 +22,7 @@ def init_api_dist():
     从data目录中获取到api列表，初始化一个字典返回
     :return:描述API列表的一个字典
     """
-    api_map = "data/api_map.json"
+    api_map = "/data/api_map.json"
     with open(api_map, 'r') as f:
         data = json.load(f)
     new_dist = {}
@@ -89,5 +89,8 @@ def transform_file_to_vec():
     vec_file.close()
 
 if __name__ == '__main__':
-    pass
+    """
+    执行训练过程，当前脚本实现了将文本转换为词向量的过程。
+    """
+    transform_file_to_vec()
 
