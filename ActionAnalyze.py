@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-
 """
 @version: ??
 @author: luffyren
@@ -12,6 +11,7 @@
 """
 
 import sys
+import getopt
 
 
 def show_how_to_use():
@@ -24,7 +24,16 @@ def main():
     """
     行为分析脚本入口
     """
-    pass
+    # 获取命令行参数
+    try:
+        op, args = getopt.getopt(sys.argv[1:],"hp:i:",["help", "port=", "ip="])
+        for op_name, op_value in op:
+            if op_name in("--help","-h"):
+                show_how_to_use()
+
+    except getopt.GetoptError:
+        print "argument error system exit..."
+        sys.exit(-1)
 
 
 if __name__ == '__main__':
