@@ -10,7 +10,7 @@
 @file: ClusterAnalyze.py
 @time: 2017/3/16 14:23
 """
-
+import csv
 import json
 import os
 
@@ -33,17 +33,17 @@ def init_api_dist():
 
 def load_file(filename):
     """
-    加载行为文件转换为词向量
+    加载行为文件转换为词向量,输入文件为一个csv文件
     思路：根据对应api编号，统计每个api调用次数将其转为描述xxxapi调用次数的一维向量。
     :param filename:文件路径
     :return:api调用矩阵
     """
-    file_in = open(filename, 'r')
+    file_in = file(filename, 'rb')
+    reader = csv.reader(file_in)
 
     api_dist = init_api_dist()
-    while True:
-        line = file_in.readline()
-        api = line[2]
+    for line in reader:
+        api = line[28]
         api_dist[api] += 1
 
     file_in.close()
@@ -83,7 +83,9 @@ def transform_file_to_vec():
         vec_map[item] = vec
 
     vec_file = open("vector_file.json", 'w')
-
+    #将矩阵dump 到文件中存储
+    matrix_data = json.dumps(vec_map)
+    vec_file.write(matrix_data)
     vec_file.close()
 
 if __name__ == '__main__':

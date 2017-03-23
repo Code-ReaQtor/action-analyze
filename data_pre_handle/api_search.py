@@ -22,7 +22,7 @@ def generate_api_map(filename):
     :return:
     """
     csv.field_size_limit(sys.maxsize)
-    
+
     api_map = {}
     file_in = file(filename, 'rb')
     reader = csv.reader(file_in)
