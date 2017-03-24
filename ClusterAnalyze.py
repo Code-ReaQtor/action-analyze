@@ -45,7 +45,8 @@ def load_file(filename):
     api_dist = init_api_dist()
     for line in reader:
         api = line[28]
-        print api + "#########"
+        if api == 'NtQueryValueKey':
+            print api + "#########"
         api_dist[api] += 1
 
     file_in.close()
