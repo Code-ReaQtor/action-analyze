@@ -13,6 +13,8 @@
 import sys
 import getopt
 
+#添加tensorflow 支持
+import tf
 
 def show_how_to_use():
     print u"""
