@@ -5,4 +5,8 @@
 @DESC:
 
 """
+import tensorflow as tf
 
+
+def main():
+    print "tensorflow surport added"
