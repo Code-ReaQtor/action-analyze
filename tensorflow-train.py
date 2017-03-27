@@ -6,7 +6,12 @@
 
 """
 import tensorflow as tf
-
+import sys
 
 def main():
     print "tensorflow surport added"
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
