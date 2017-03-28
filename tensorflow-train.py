@@ -17,6 +17,8 @@ def test_tf():
     print sess.run(y, feed_dict={a: 3, b: 3})
 
 
+def tf_train():
+    pass
 
 def main():
     print "tensorflow surport added"
