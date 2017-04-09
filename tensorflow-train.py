@@ -7,6 +7,7 @@
 """
 import tensorflow as tf
 import sys
+import json
 
 
 def test_tf():
@@ -17,8 +18,22 @@ def test_tf():
     print sess.run(y, feed_dict={a: 3, b: 3})
 
 
-def tf_train():
+def input_mtx():
+    """
+    加载文件中保存的矩阵，转换成输入。进行聚类
+    :return: 
+    """
+    mtx_file = open("vector.json", 'r')
     pass
+
+
+def tf_train():
+    """
+    使用tensorflow接口进行聚类
+    :return: 
+    """
+    pass
+
 
 def main():
     print "tensorflow surport added"
