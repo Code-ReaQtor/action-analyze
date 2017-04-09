@@ -22,10 +22,13 @@ def test_tf():
 def input_mtx():
     """
     加载文件中保存的矩阵，转换成输入。进行聚类
-    :return: 
+    :return: 返回文件中的向量
     """
     mtx_file = open("vector.json", 'r')
-    pass
+    #　加载向量
+    mtx_file.close()
+    vectors = []
+    return vectors
 
 
 def tf_train():
@@ -33,7 +36,12 @@ def tf_train():
     使用tensorflow接口进行聚类
     :return: 
     """
-    pass
+    vectors = input_mtx()
+    tf_vecs = tf.constant(vectors)
+    # 当前还不清楚如何取Ｋ值，这里首先就用４
+    k=4
+    
+
 
 
 def main():
