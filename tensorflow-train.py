@@ -8,6 +8,7 @@
 import tensorflow as tf
 import sys
 import json
+from numpy import array
 
 
 def test_tf():
