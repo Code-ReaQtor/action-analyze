@@ -26,21 +26,28 @@ def input_mtx():
     """
     mtx_file = open("vector.json", 'r')
     #　加载向量
-    mtx_file.close()
+    vec_dict = json.load(mtx_file)
     vectors = []
+    for value in vec_dict:
+        vectors.append(value)
+    mtx_file.close()
     return vectors
 
 
 def tf_train():
     """
-    使用tensorflow接口进行聚类
+    使用tensorflow接口进行聚类,使用kmean聚类算法实现
     :return: 
     """
     vectors = input_mtx()
     tf_vecs = tf.constant(vectors)
     # 当前还不清楚如何取Ｋ值，这里首先就用４
     k=4
-    
+    init_op = tf.initialize_all_variables()
+    sess = tf.Session()
+    sess.run(init_op)
+
+
 
 
 
