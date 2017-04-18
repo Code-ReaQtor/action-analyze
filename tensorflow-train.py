@@ -40,9 +40,16 @@ def tf_train():
     :return: 
     """
     vectors = input_mtx()
+    # 将向量加载到会话中
     tf_vecs = tf.constant(vectors)
     # 当前还不清楚如何取Ｋ值，这里首先就用４
     k=4
+    centroides = tf.Variable(tf.slice(tf.random_shuffle(vectors)))
+    expand_vecs = tf.expand_dims(tf_vecs, 0)
+    expand_cens = tf.expand_dims(centroides, 1)
+    diff = tf.sub(expand_vecs, expand_cens)
+    sqr = tf.square(diff)
+
     init_op = tf.initialize_all_variables()
     sess = tf.Session()
     sess.run(init_op)
