@@ -49,18 +49,19 @@ def tf_train():
     expand_cens = tf.expand_dims(centroides, 1)
     diff = tf.sub(expand_vecs, expand_cens)
     sqr = tf.square(diff)
-    
+    distance = tf.reduce_sum(sqr, 2)
+    assignments = tf.argmin(distance, 0)
 
     #计算图心
-    means = tf.concat(0, [tf.reduce_mean(tf.gather(vectors,tf.reshape(tf.where(tf.equal(assignments,c)),[1,-1])),reduction_indices=[1])forcinxrange(k)])
-
+    means = tf.concat(0, [tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where(tf.equal(assignments, c)), [1, -1])), reduction_indices=[1])for c in xrange(k)])
+    update_centroides = tf.assign(centroides, means)
     init_op = tf.initialize_all_variables()
+
+    # 准备工作就绪 开始
     sess = tf.Session()
     sess.run(init_op)
-
-
-
-
+    for step in xrange(100):
+        _, centroides_values, assignments_values = sess.run([update_centroides, centroides, assignments])
 
 def main():
     print "tensorflow surport added"
