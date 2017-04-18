@@ -49,6 +49,10 @@ def tf_train():
     expand_cens = tf.expand_dims(centroides, 1)
     diff = tf.sub(expand_vecs, expand_cens)
     sqr = tf.square(diff)
+    
+
+    #计算图心
+    means = tf.concat(0, [tf.reduce_mean(tf.gather(vectors,tf.reshape(tf.where(tf.equal(assignments,c)),[1,-1])),reduction_indices=[1])forcinxrange(k)])
 
     init_op = tf.initialize_all_variables()
     sess = tf.Session()
