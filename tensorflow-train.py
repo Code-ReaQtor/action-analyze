@@ -31,6 +31,8 @@ def input_mtx():
     for value in vec_dict:
         vectors.append(value)
     mtx_file.close()
+
+    print u"加载向量文件完成"
     return vectors
 
 
@@ -59,6 +61,7 @@ def tf_train():
     init_op = tf.initialize_all_variables()
 
     # 准备工作就绪 开始
+    print "finish initialization... session start..."
     sess = tf.Session()
     sess.run(init_op)
     for step in xrange(100):
@@ -68,6 +71,8 @@ def tf_train():
 def main():
     print "tensorflow surport added"
     test_tf()
+    # 开始tensorflow训练
+    tf_train()
     return 0
 
 
