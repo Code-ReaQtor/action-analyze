@@ -47,8 +47,8 @@ def tf_train():
     # 将向量加载到会话中
     tf_vecs = tf.constant(vectors)
     # 当前还不清楚如何取Ｋ值，这里首先就用４
-    k=4
-    centroides = tf.Variable(tf.slice(tf.random_shuffle(vectors)))
+    k = 4
+    centroides = tf.Variable(tf.slice(tf.random_shuffle(vectors), [0, 0], [k, -1]))
     expand_vecs = tf.expand_dims(tf_vecs, 0)
     expand_cens = tf.expand_dims(centroides, 1)
     diff = tf.sub(expand_vecs, expand_cens)
