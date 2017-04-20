@@ -24,7 +24,7 @@ def input_mtx():
     加载文件中保存的矩阵，转换成输入。进行聚类
     :return: 返回文件中的向量
     """
-    mtx_file = open("vector.json", 'r')
+    mtx_file = open("data/vector_file.json", 'r')
     #　加载向量
     vec_dict = json.load(mtx_file)
     vectors = []
@@ -36,7 +36,8 @@ def input_mtx():
 
 def tf_train():
     """
-    使用tensorflow接口进行聚类,使用kmean聚类算法实现
+    使用tensorflow接口进行聚类,使用kmean聚类算法实现。
+    注：当前未实现削减无关因素的影响，当前来说，读取注册表内容的API调用非常多，其他的操作相对来说少了很多。
     :return: 
     """
     vectors = input_mtx()
@@ -62,6 +63,7 @@ def tf_train():
     sess.run(init_op)
     for step in xrange(100):
         _, centroides_values, assignments_values = sess.run([update_centroides, centroides, assignments])
+
 
 def main():
     print "tensorflow surport added"
