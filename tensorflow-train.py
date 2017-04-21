@@ -72,7 +72,7 @@ def tf_train():
 def main():
     print "tensorflow surport added"
     test_tf()
-    # 开始tensorflow训练  
+    # 开始tensorflow训练 
     tf_train()
     return 0
 
