@@ -48,6 +48,7 @@ def tf_train():
     vectors = input_mtx()
     # 将向量加载到会话中
     tf_vecs = tf.constant(vectors)
+    print vectors
     # 当前还不清楚如何取Ｋ值，这里首先就用４
     k = 4
     centroides = tf.Variable(tf.slice(tf.random_shuffle(vectors), [0, 0], [k, -1]))
