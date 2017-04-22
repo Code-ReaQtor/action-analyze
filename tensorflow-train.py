@@ -66,7 +66,7 @@ def tf_train():
     reshape_result = tf.reshape(tf.where(equal_result), [1, -1])
     gather_result = tf.gather(vectors, reshape_result)
     reduce_mean = tf.reduce_mean(gather_result, reduction_indices=[1])
-    means = tf.concat(0, [reduce_mean for c in xrange(k)])
+    means = tf.concat(0, [reduce_mean, reduce_mean])
     update_centroides = tf.assign(centroides, means)
     init_op = tf.initialize_all_variables()
 
