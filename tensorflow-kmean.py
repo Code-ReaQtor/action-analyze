@@ -107,14 +107,14 @@ def tf_kmean(vectors, k):
         centroids = [tf.Variable((vectors[vector_indices[i]]))
                      for i in range(no_of_clusters)]
         # #创建一个placeholder用于存放各个中心点可能的分类的情况
-        centroid_value = tf.placeholder("float64", [dim])
+        centroid_value = tf.placeholder("int32", [dim])
         cent_assigns = []
         for centroid in centroids:
             cent_assigns.append(tf.assign(centroid, centroid_value))
         # #对于每个独立向量的分属的类别设置为默认值0
         assignments = [tf.Variable(0) for i in range(len(vectors))]
         # #这些节点在后续的操作中会被分配到合适的值
-        assignment_value = tf.placeholder("float64")
+        assignment_value = tf.placeholder("int32")
         cluster_assigns = []
         for assignment in assignments:
             cluster_assigns.append(tf.assign(assignment,
