@@ -107,7 +107,7 @@ def tf_kmean(vectors, k):
         centroids = [tf.Variable((vectors[vector_indices[i]]))
                      for i in range(no_of_clusters)]
         # #创建一个placeholder用于存放各个中心点可能的分类的情况
-        centroid_value = tf.placeholder("int32", [dim])
+        centroid_value = tf.placeholder("float64", [dim])
         cent_assigns = []
         for centroid in centroids:
             cent_assigns.append(tf.assign(centroid, centroid_value))
@@ -121,18 +121,18 @@ def tf_kmean(vectors, k):
                                              assignment_value))
         # 下面创建用于计算平均值的操作节点
         # 输入的placeholder
-        mean_input = tf.placeholder("int32", [None, dim])
+        mean_input = tf.placeholder("float", [None, dim])
         # 节点/OP接受输入，并且计算0维度的平均值，譬如输入的向量列表
         mean_op = tf.reduce_mean(mean_input, 0)
         # 用于计算欧几里得距离的节点
-        v1 = tf.placeholder("int32", [dim])
-        v2 = tf.placeholder("int32", [dim])
+        v1 = tf.placeholder("float", [dim])
+        v2 = tf.placeholder("float", [dim])
         euclid_dist = tf.sqrt(tf.reduce_sum(tf.pow(tf.subtract(
             v1, v2), 2)))
         # #这个OP会决定应该将向量归属到哪个节点
         # #基于向量到中心点的欧几里得距离
         # Placeholder for input
-        centroid_distances = tf.placeholder("int32", [no_of_clusters])
+        centroid_distances = tf.placeholder("float", [no_of_clusters])
         cluster_assignment = tf.argmin(centroid_distances, 0)
         # #初始化所有的状态值
         # #这会帮助初始化图中定义的所有Variables。Variable-initializer应该定
