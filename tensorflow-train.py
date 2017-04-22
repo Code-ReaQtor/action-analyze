@@ -30,7 +30,7 @@ def input_mtx():
     vec_dict = json.load(mtx_file)
     vectors = []
     for value in vec_dict:
-        vectors.append(value)
+        vectors.append(vec_dict[value])
     mtx_file.close()
 
     print u"加载向量文件完成"
