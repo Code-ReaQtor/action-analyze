@@ -78,6 +78,20 @@ def tf_train():
         _, centroides_values, assignments_values = sess.run([update_centroides, centroides, assignments])
 
 
+def tf_kmean(vectors, k):
+    """
+    K-means clusters
+    :param vectors: 
+    :param k: 
+    :return: 
+    """
+    no_of_clusters = int(k)
+    assert no_of_clusters < len(vectors)
+
+    # 找出向量的维度
+    
+
+
 def main():
     print "tensorflow surport added"
     test_tf()
