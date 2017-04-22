@@ -34,6 +34,7 @@ def input_mtx():
     mtx_file.close()
 
     print u"加载向量文件完成"
+    print u"向量维度：" + len(vectors[0])
     return vectors
 
 
@@ -72,7 +73,7 @@ def tf_train():
 def main():
     print "tensorflow surport added"
     test_tf()
-    # 开始tensorflow训练 
+    # 开始tensorflow训练
     tf_train()
     return 0
 
