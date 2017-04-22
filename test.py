@@ -11,4 +11,5 @@ import tensorflow as tf
 
 def test_expand_dim():
     vec = tf.constant([1, 1, 1, 1])
-    
+    sess = tf.Session()
+    print sess.run(vec)
