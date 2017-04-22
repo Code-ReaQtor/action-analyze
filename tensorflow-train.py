@@ -34,7 +34,8 @@ def input_mtx():
     mtx_file.close()
 
     print u"加载向量文件完成"
-    print u"向量维度：" + len(vectors[0])
+    # print vectors
+    print "向量维度：" + str(len(vectors[0]))
     return vectors
 
 
