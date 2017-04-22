@@ -184,7 +184,9 @@ def main():
     print "tensorflow surport added"
     test_tf()
     # 开始tensorflow训练
-    tf_train()
+    # tf_train()
+    centroids, assginments = tf_kmean(vectors=input_mtx(), k=2)
+    print centroids
     return 0
 
 
