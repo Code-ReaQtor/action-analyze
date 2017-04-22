@@ -62,7 +62,7 @@ def tf_train():
     print "compute centroids"
     # means = tf.concat(0, [tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where(tf.equal(assignments, c)), [1, -1])), reduction_indices=[1])for c in xrange(k)])
 
-    equal_result = tf.equal(assignments, [1, 2, 3, 4])
+    equal_result = tf.equal(assignments, [1])
     reshape_result = tf.reshape(tf.where(equal_result, [1, -1]))
     gather_result = tf.gather(vectors, reshape_result)
     reduce_mean = tf.reduce_mean(gather_result, reduction_indices=[1])
