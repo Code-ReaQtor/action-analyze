@@ -59,6 +59,7 @@ def tf_train():
     assignments = tf.argmin(distance, 0)
 
     #计算图心
+    print "compute centroids"
     means = tf.concat(0, [tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where(tf.equal(assignments, c)), [1, -1])), reduction_indices=[1])for c in xrange(k)])
     update_centroides = tf.assign(centroides, means)
     init_op = tf.initialize_all_variables()
