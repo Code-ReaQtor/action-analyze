@@ -114,7 +114,7 @@ def tf_kmean(vectors, k):
         # #对于每个独立向量的分属的类别设置为默认值0
         assignments = [tf.Variable(0) for i in range(len(vectors))]
         # #这些节点在后续的操作中会被分配到合适的值
-        assignment_value = tf.placeholder("int32")
+        assignment_value = tf.placeholder("float64")
         cluster_assigns = []
         for assignment in assignments:
             cluster_assigns.append(tf.assign(assignment,
