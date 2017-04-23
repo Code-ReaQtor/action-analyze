@@ -7,24 +7,20 @@
 
 """
 
-import sys
 import csv
 
 
 user_array = []
 
 
-def add_data_csv(user_name, data):
+def add_data_csv(user_process_name, data):
     """
     将数据添加到对应为csv文件中去
-    :param user_name:
+    :param user_process_name:
     :param data:
     :return:
     """
-    if user_name not in user_array:
-        user_array.append(user_name)
-
-    file_out = file('../data/after_cut/'+user_name+'.csv', 'ab+')
+    file_out = file('../data/after_cut/'+user_process_name+'.csv', 'ab+')
     file_writer = csv.writer(file_out)
     file_writer.writerow(data)
     file_out.close()
@@ -32,7 +28,7 @@ def add_data_csv(user_name, data):
 
 def process_cut(filename):
     """
-    将数据文件按某个用户的进程 或者动态库进行划分。分析其进程行为
+    将数据文件按某个用户的进程 以及动态库进行划分。分析其进程行为
     :return: 
     """
     """
@@ -44,13 +40,15 @@ def process_cut(filename):
 
     for line in reader:
         user_name = line[63]
-        add_data_csv(user_name=user_name, data=line)
+        process_name = line[27]
+        add_data_csv(user_process_name=user_name+"|"+process_name, data=line)
 
     file_in.close()
 
 
 def main():
     process_cut("../data/683.csv")
+    return 0
 
 if __name__ == "__main__":
     exit(main())
