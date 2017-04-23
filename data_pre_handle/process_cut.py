@@ -20,7 +20,7 @@ def add_data_csv(user_process_name, data):
     :param data:
     :return:
     """
-    file_out = file('../data/after_cut/'+user_process_name+'.csv', 'ab+')
+    file_out = file('../data/after_process_cut/'+user_process_name+'.csv', 'ab+')
     file_writer = csv.writer(file_out)
     file_writer.writerow(data)
     file_out.close()
