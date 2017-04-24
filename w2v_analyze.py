@@ -4,7 +4,7 @@
 @author:luffyren-ubuntu-vm
 @date:
 @DESC:
-
+实现词向量模型的训练. implementing 
 """
 
 import tensorflow as tf
