@@ -98,6 +98,7 @@ def tf_kmean(vectors, k):
     # 我们创建了一个默认的计算流的图用于整个算法中，这样就保证了当函数被多次调用
     # 时，默认的图并不会被从上一次调用时留下的未使用的OPS或者Variables挤满
     graph = tf.Graph()
+    print "graph built... trying to compute..."
     with graph.as_default():
         # 计算的会话
         sess = tf.Session()
@@ -144,11 +145,13 @@ def tf_kmean(vectors, k):
         # 接下来在K-Means聚类迭代中使用最大期望算法。为了简单起见，只让它执行固
         # 定的次数，而不设置一个终止条件
         noofiterations = 100
+        print "start loop...iteration of 100"
         for iteration_n in range(noofiterations):
             # 期望步骤
             # 基于上次迭代后算出的中心点的未知
             # the _expected_ centroid assignments.
             # 首先遍历所有的向量
+            print "step 1:check all the vectors..."
             for vector_n in range(len(vectors)):
                 vect = vectors[vector_n]
                 # 计算给定向量与分配的中心节点之间的欧几里得距离
@@ -161,18 +164,19 @@ def tf_kmean(vectors, k):
                 # 接下来为每个向量分配合适的值
                 sess.run(cluster_assigns[vector_n], feed_dict={
                     assignment_value: assignment})
-        # 最大化的步骤
-        # 基于上述的期望步骤，计算每个新的中心点的距离从而使集群内的平方和最小
-        for cluster_n in range(no_of_clusters):
-            # 收集所有分配给该集群的向量
-            assigned_vects = [vectors[i] for i in range(len(vectors))
-                      if sess.run(assignments[i]) == cluster_n]
-            # 计算新的集群中心点
-            new_location = sess.run(mean_op, feed_dict={
-                mean_input: array(assigned_vects)})
-            # 为每个向量分配合适的中心点
-            sess.run(cent_assigns[cluster_n], feed_dict={
-                centroid_value: new_location})
+            # 最大化的步骤
+            # 基于上述的期望步骤，计算每个新的中心点的距离从而使集群内的平方和最小
+            print "step 2: based on the result above, compute the min distance..."
+            for cluster_n in range(no_of_clusters):
+                # 收集所有分配给该集群的向量
+                assigned_vects = [vectors[i] for i in range(len(vectors))
+                                  if sess.run(assignments[i]) == cluster_n]
+                # 计算新的集群中心点
+                new_location = sess.run(mean_op, feed_dict={
+                    mean_input: array(assigned_vects)})
+                # 为每个向量分配合适的中心点
+                sess.run(cent_assigns[cluster_n], feed_dict={
+                    centroid_value: new_location})
 
         # 返回中心节点和分组
         centroids = sess.run(centroids)
