@@ -9,7 +9,16 @@
 import tensorflow as tf
 
 
-def softmax():
+def get_data():
+    """
+    
+    :return: 
+    """
+    pass
+    return {}
+
+
+def soft_max():
     x = tf.placeholder(tf.float32, [None, 61])
 
     # 程序的分类现在先不能确定，今天晚上大概还需要在确定下,先以10类为准
@@ -28,12 +37,12 @@ def softmax():
     sess = tf.Session()
     sess.run(init)
 
-    for i in range(1000):
+    data = get_data()
+    for (batch_xs, batch_ys) in data.items():
         #
         # batch_xs, batch_ys = next_batch()
         sess.run(train_step, feed_dict={x:batch_xs, y_:batch_ys})
 
 
-
 if __name__ == '__main__':
-    softmax()
+    soft_max()
