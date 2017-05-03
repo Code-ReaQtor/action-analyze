@@ -64,6 +64,19 @@ def generate_api_map_t(filename):
     file_out.close()
 
 
+def show_api_map():
+    """
+    列表形式展示生成的api map。方便查看已经监控的哪些api
+    :return:
+    """
+    api_file = open('../data/api_map.json', 'r')
+    api_map = json.load(api_file)
+    for (k, v) in api_map.items():
+        print "[%s, %s]" % (k, v)
+
+    api_file.close()
+
+
 if __name__ == '__main__':
     generate_api_map(filename="../data/683.csv")
 
