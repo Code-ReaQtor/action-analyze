@@ -1,0 +1,26 @@
+{
+  "NtCreateFile": 100,
+  "NtOpenFile":   101,
+  "NtReadFile":   102,
+  "NtWriteFile":  103,
+  "NtCreateKey":      201,
+  "NtDeleteKey":      203,
+  "NtSetValueKey":    206,
+  "NtQueryValueKey":  207,
+  "RegEnumKey ":      208,
+  "connect":   302,
+  "xxx":      300,
+
+  "NtReadCookies":   400,
+
+  "NtCreateUserProcess":    500,
+  "NtReadVirtualMemory":    503,
+  "NtWriteVirtualMemory":   504,
+  "NtOpenThread":           510,
+  "NtTerminateThread":      511,
+  "NtAdjustPrivilegesToken":522,
+  "NtDuplicateToken":       523,
+
+  "RpcStringBindingComposeW":   960,
+  "GetAsyncKeyState_count":     933
+}
