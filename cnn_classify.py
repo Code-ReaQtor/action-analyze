@@ -11,6 +11,7 @@
 @time: 2017/4/27 20:00
 """
 
+import sys
 import tensorflow as tf
 import json
 
@@ -23,11 +24,10 @@ def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 
-class Main():
-    def __init__(self):
-        pass
+def main():
+    return 0
 
 
 if __name__ == '__main__':
-    pass
+    sys.exit(main())
 
