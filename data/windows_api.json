@@ -14,6 +14,7 @@
   "NtReadCookies":   400,
 
   "NtCreateUserProcess":    500,
+  "NtOpenProcess":          501,
   "NtReadVirtualMemory":    503,
   "NtWriteVirtualMemory":   504,
   "NtOpenThread":           510,
