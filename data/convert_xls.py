@@ -14,21 +14,64 @@ import xlwt
 import json
 import random
 
+software = {
+    "QQ":   [
+        'NtQueryValueKey',
+        'NtCreateUserProcess',
+        'Recv',
+        'RecvFrom',
+        'Send',
+        'SendTo',
+      ],
+    "explorer": [
+        'NtQueryValueKey',
+        'Recv',
+        'NtReadCookies',
+        'NtOpenProcess',
+        'NtCreateUserProcess',
+    ],
+
+    "edit_tool": [
+        'NtQueryValueKey',
+        'NtWriteFile',
+        'NtCreateUserProcess'
+    ],
+    
+    "spy": [
+        'NtQueryValueKey',
+        'RegEnumKey',
+        'NtOpenFile',
+        'NtReadFile'
+    ],
+
+    "soldier": [
+        'NtQueryValueKey',
+        'NtOpenFile',
+        'NtReadFile',
+    ]
+}
+
 
 def write_xls():
+    """
+    读取各类程序的特点字典，生成excel表格方便制图。
+    :return:
+    """
     book = xlwt.Workbook(encoding='utf-8', style_compression=0)
-    sheet = book.add_sheet('name_of_sheet', cell_overwrite_ok=True)
 
     api_file = open('windows_api.json', 'r')
     api_map = json.load(api_file)
-    idx = 0
-    for (k, v) in api_map.items():
-        sheet.write(0, idx, k)
-        if random.randint(0, 10) % 2 == 0:
-            sheet.write(1, idx, little_random())
-        else:
-            sheet.write(1, idx, big_random())
-        idx += 1
+
+    for (cluster, keyword) in software.items():
+        sheet = book.add_sheet(cluster, cell_overwrite_ok=True)
+        idx = 0
+        for (k, v) in api_map.items():
+            sheet.write(0, idx, k)
+            if k not in keyword:
+                sheet.write(1, idx, little_random())
+            else:
+                sheet.write(1, idx, big_random())
+            idx += 1
     book.save(r'api_map.xls')
     api_file.close()
 
@@ -38,7 +81,7 @@ def little_random():
     产生0-10之间的随机数
     :return:
     """
-    return random.randint(0, 10)
+    return random.randint(0, 30)
 
 
 def big_random():

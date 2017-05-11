@@ -13,10 +13,13 @@
   "RegEnumValueKey":  205,
   "NtSetValueKey":    206,
   "NtQueryValueKey":  207,
-  "RegEnumKey ":      208,
+  "RegEnumKey":      208,
 
-  "Connect":        302,
   "Accept":         300,
+  "Connect":        302,
+  "Recv":           304,
+  "RecvFrom":       306,
+  "SendTo":         307,
 
   "NtReadCookies":   400,
 
@@ -29,6 +32,7 @@
   "NtAdjustPrivilegesToken":522,
   "NtDuplicateToken":       523,
 
-  "RpcStringBindingComposeW":   960,
-  "GetAsyncKeyState_count":     933
+
+  "GetAsyncKeyState_count":     933,
+  "RpcStringBindingComposeW":   960
 }
