@@ -77,6 +77,39 @@ def show_api_map():
     api_file.close()
 
 
+def show_api_record():
+    """
+    展示单条api行为调用记录
+    :return:
+    """
+    file_in = open('../data/683.csv', 'r')
+    csv_file = csv.reader(file_in)
+    idx = 1
+
+    for line in csv_file:
+        if idx == 100:
+            # 输出第100行数据
+            cols = {
+                "time": 24,
+                "process_address": 25,
+                "process_name": 27,
+                "APIName": 28,
+                "key": 29,
+                "value": 30,
+                "process_id": 46,
+                "thread_id": 47,
+                "PCName": 63,
+                "IP": 64
+            }
+            for (k, v) in cols.items():
+                print k + ": " + line[int(v)]
+            break
+        idx += 1
+
+    file_in.close()
+
+
 if __name__ == '__main__':
-    generate_api_map(filename="../data/683.csv")
+    # generate_api_map(filename="../data/683.csv")
+    show_api_record()
 

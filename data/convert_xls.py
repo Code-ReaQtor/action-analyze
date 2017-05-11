@@ -27,6 +27,7 @@ software = {
         'NtQueryValueKey',
         'Recv',
         'NtReadCookies',
+        'NtSetCookies',
         'NtOpenProcess',
         'NtCreateUserProcess',
     ],
@@ -36,7 +37,7 @@ software = {
         'NtWriteFile',
         'NtCreateUserProcess'
     ],
-    
+
     "spy": [
         'NtQueryValueKey',
         'RegEnumKey',

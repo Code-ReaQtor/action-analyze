@@ -21,7 +21,8 @@
   "RecvFrom":       306,
   "SendTo":         307,
 
-  "NtReadCookies":   400,
+  "NtReadCookies":    400,
+  "NtSetCookies":     401,
 
   "NtCreateUserProcess":    500,
   "NtOpenProcess":          501,
