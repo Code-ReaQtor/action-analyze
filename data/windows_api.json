@@ -15,8 +15,8 @@
   "NtQueryValueKey":  207,
   "RegEnumKey ":      208,
 
-  "connect":    302,
-  "xxx":        300,
+  "Connect":        302,
+  "Accept":         300,
 
   "NtReadCookies":   400,
 
