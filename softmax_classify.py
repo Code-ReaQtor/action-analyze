@@ -28,14 +28,14 @@ def soft_max():
 
     y = tf.nn.softmax(tf.matmul(x, W) + b)
 
-    #损失函数
+    # 损失函数
 
     y_ = tf.placeholder(tf.float32, [None, 7])
     cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 
     train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
-    #初始化
+    # 初始化
     init = tf.initialize_all_variables()
     sess = tf.Session()
     sess.run(init)
@@ -45,6 +45,9 @@ def soft_max():
         #
         # batch_xs, batch_ys = next_batch()
         sess.run(train_step, feed_dict={x:batch_xs, y_:batch_ys})
+
+    # 模型验证
+    # 获取
 
 
 if __name__ == '__main__':

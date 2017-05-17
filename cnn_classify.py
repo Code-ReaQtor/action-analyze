@@ -34,10 +34,10 @@ def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 
-def main():
+def cnn_train():
     """
-    
-    :return: 
+    创建CNN卷积神经网络，训练数据
+    :return:
     """
     #
     W_conv1 = weight_variable([5, 5, 1, 32])
@@ -50,7 +50,14 @@ def main():
     h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
     h_pool1 = max_pool_2x2(h_conv1)
 
-    
+
+
+
+def main():
+    """
+    实现数据训练和模型验证
+    :return: 
+    """
 
     return 0
 
