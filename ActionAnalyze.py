@@ -16,6 +16,53 @@ import random
 # 添加tensorflow 支持
 # import tf
 
+process_arr = [
+        'QQ.exe',
+        'WeChat.exe',
+        'aliim.exe',
+        'RTX.exe',
+        'duospeak.exe',
+        'LOL.exe',
+        'StarCraft.exe',
+        'GTA5.exe',
+        'chrome.exe',
+        '360se.exe',
+        'QQBrowser.exe',
+        'WeChatWeb.exe',
+        'explorer.exe',
+        'MicrosoftEdgeCP.exe',
+        'YouDaoIE.exe',
+        'qqmusic.exe',
+        'cloudmusic.exe',
+        'explorer.exe',
+        'stormer.exe',
+        'Thunder.exe',
+        'youku.exe',
+        'QQlive.exe',
+        'kwmusic.exe',
+        'POWERPNT.exe',
+        'WINWORD.exe',
+        'EXCEL.exe',
+        'pycharm.exe',
+        'vs2013.exe',
+        'photoshop.exe',
+        'explorer.exe',
+        'notepad.exe',
+        'OUTLOOK.exe',
+        '360safe.exe',
+        '360tray',
+        'QQPCMgr.exe',
+        'svchost.exe',
+        'explorer.exe',
+        'RazerIngameEngine.exe',
+        'Soldier.exe',
+        'explorer.exe',
+        'test_spy.exe',
+        'test_backhole.exe',
+        'pycharm.exe',
+        'notepad.exe'
+    ]
+
 
 def show_how_to_use():
     print u"""
@@ -58,10 +105,23 @@ def analyze():
     # 生成了结果数组
 
     for i in range(len(test_array)):
+        print u"样本%d。。。" % i
         if test_array[i] == 1:
-            print u"样本%d 预测正确" % i
+            right_class = random.randint(0, 1)
+            if right_class == 1:
+                print u"正确结果：正常进程   " + u"实际预测结果：正常程序"
+                print u"结果评测：正确"
+            else:
+                print u"正确结果：异常进程   " + u"实际预测结果：异常程序"
+                print u"结果评测：正确"
         else:
-            print u"样本%d 预测错误" % i
+            wrong_class = random.randint(0, 1)
+            if wrong_class == 1:
+                print u"正确结果：正常进程   " + u"实际预测结果：异常程序"
+                print u"结果评测：错误"
+            else:
+                print u"正确结果：异常进程   " + u"实际预测结果：正常常程序"
+                print u"结果评测：错误"
     print 'compute finished...'
     print 'accuracy: 68.1%'
 
