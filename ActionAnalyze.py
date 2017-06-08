@@ -120,7 +120,7 @@ def analyze():
                 print u"正确结果：正常进程   " + u"实际预测结果：异常程序"
                 print u"结果评测：错误"
             else:
-                print u"正确结果：异常进程   " + u"实际预测结果：正常常程序"
+                print u"正确结果：异常进程   " + u"实际预测结果：正常程序"
                 print u"结果评测：错误"
     print 'compute finished...'
     print 'accuracy: 68.1%'
